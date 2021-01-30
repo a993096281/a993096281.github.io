@@ -1839,16 +1839,16 @@ window.__require = function e(t, n, o) {
       play: function () {
         console.log(1);
         var e = this;
-        // adBreak({
-        //   type: "next",
-        //   name: "restart-game",
-        //   beforeBreak: function () {
-        //     e.enableButtons()
-        //   },
-        //   afterBreak: function () {
-        //     e.enableButtons()
-        //   }
-        // })
+        adBreak({
+          type: "next",
+          name: "restart-game",
+          beforeBreak: function () {
+            e.enableButtons()
+          },
+          afterBreak: function () {
+            e.enableButtons()
+          }
+        })
       },
       enableButtons: function () {
       },
