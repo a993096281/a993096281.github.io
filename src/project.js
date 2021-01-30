@@ -1020,9 +1020,9 @@ window.__require = function e(t, n, o) {
           }).union().repeatForever().start()
         }, t.prototype.update = function (e) {
         }, t.prototype.adsButtonFunc2 = function () {
-          window.location.href = "https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/yupi_wechat.png"
+          //window.location.href = "https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/yupi_wechat.png"
         }, t.prototype.bannerButtonFunc = function () {
-          window.location.href = "https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/yupi_wechat.png"
+          //window.location.href = "https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/yupi_wechat.png"
         }, t.prototype.ShowFailedUi = function (e, t) {
           var n = this;
           this.scheduleOnce(function () {
@@ -1839,16 +1839,16 @@ window.__require = function e(t, n, o) {
       play: function () {
         console.log(1);
         var e = this;
-        adBreak({
-          type: "next",
-          name: "restart-game",
-          beforeBreak: function () {
-            e.enableButtons()
-          },
-          afterBreak: function () {
-            e.enableButtons()
-          }
-        })
+        // adBreak({
+        //   type: "next",
+        //   name: "restart-game",
+        //   beforeBreak: function () {
+        //     e.enableButtons()
+        //   },
+        //   afterBreak: function () {
+        //     e.enableButtons()
+        //   }
+        // })
       },
       enableButtons: function () {
       },
@@ -1958,6 +1958,7 @@ window.__require = function e(t, n, o) {
     });
     var a = e("../common/PlayerInfo"),
       i = e("./EffectCenter"),
+      b = e("./GameFunction"),
       r = e("./AudioManager"),
       s = e("./DataManager"),
       l = e("../commonJs/GameConfig"),
@@ -1984,7 +1985,9 @@ window.__require = function e(t, n, o) {
         }, t.prototype.update = function (e) {
           this.UpdateScoreLabel(e), this.lerpCtrl && this.lerpNumFunc(this.passlevelYQ), this.levelPanel.children[1].getComponent(cc.Label).string = s.default.Instance.GetLevel().toString()
         }, t.prototype.adsButtonFunc = function () {
-          window.location.href = "https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/yupi_wechat.png";
+          if(b.default.Instance.targetFruit.name==='') return;
+          b.default.Instance.targetFruit.destroy()
+          b.default.Instance.createOneFruit(Math.floor(Math.random()*10))
         }, t.prototype.TestPasslevel = function () {
           var e = this;
           this.lerpCtrl = !0, this.nowYQ >= this.passlevelYQ && (this.levelPanel.children[2].runAction(cc.sequence(cc.delayTime(1.3), cc.callFunc(function () {
@@ -2045,7 +2048,8 @@ window.__require = function e(t, n, o) {
     "../commonJs/GameConfig": "GameConfig",
     "./AudioManager": "AudioManager",
     "./DataManager": "DataManager",
-    "./EffectCenter": "EffectCenter"
+    "./EffectCenter": "EffectCenter",
+    "./GameFunction": "GameFunction"
   }],
   MainManage: [function (e, t, n) {
     "use strict";
